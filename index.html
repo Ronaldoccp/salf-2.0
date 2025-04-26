@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALF - Sistema de Avaliação, Leitura e Fluência</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-blue-50 min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Imagem lateral -->
+        <div class="hidden lg:block lg:w-1/2 bg-blue-600">
+            <div class="flex items-center justify-center h-full">
+                <div class="text-center p-10">
+                    <h1 class="text-5xl font-bold text-white mb-6">SALF</h1>
+                    <p class="text-2xl text-white">Sistema de Avaliação, Leitura e Fluência</p>
+                    <div class="mt-10">
+                        <img src="https://via.placeholder.com/400x300?text=Educação" alt="Educação" class="mx-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulário de login -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center">
+            <div class="max-w-md w-full p-6">
+                <h1 class="text-3xl font-bold text-center text-blue-800 mb-8 lg:hidden">SALF</h1>
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Login</h2>
+                
+                <div id="error-message" class="hidden mb-4 p-3 bg-red-100 text-red-700 rounded-md"></div>
+                
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="email" id="email" name="email" required 
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="password" name="password" required 
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" 
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200">
+                            Entrar
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600">
+                            Usuários disponíveis para teste:
+                        </p>
+                        <div class="mt-2 grid grid-cols-2 gap-2 text-xs text-gray-600">
+                            <div class="bg-gray-50 p-2 rounded-md">
+                                admin@salf.edu.br<br>
+                                senha123
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-md">
+                                coordenador@salf.edu.br<br>
+                                senha123
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-md">
+                                aplicador@salf.edu.br<br>
+                                senha123
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-md">
+                                gestor@salf.edu.br<br>
+                                senha123
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html> 
