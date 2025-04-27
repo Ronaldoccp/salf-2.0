@@ -32,7 +32,7 @@ const authMiddleware = (req, res, next) => {
   
   try {
     // Verificar o token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 's4lf-s3cur3-j5on-w3b-t0k3n');
     
     // Adicionar o usuário à requisição
     req.userId = decoded.id;

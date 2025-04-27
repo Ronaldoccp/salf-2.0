@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
 // Removendo a autenticação conforme solicitado
-// const { authMiddleware, isAdmin } = require('../middleware/authMiddleware');
+const { authMiddleware, isAdmin } = require('../middleware/authMiddleware');
 
 /**
  * @swagger
@@ -56,7 +56,7 @@ const usuarioController = require('../controllers/usuarioController');
  *       500:
  *         description: Erro interno do servidor
  */
-router.get('/', usuarioController.listarUsuarios);
+router.get('/', authMiddleware, usuarioController.listarUsuarios);
 
 /**
  * @swagger
@@ -105,7 +105,7 @@ router.get('/', usuarioController.listarUsuarios);
  *       500:
  *         description: Erro interno do servidor
  */
-router.get('/:id', usuarioController.buscarUsuario);
+router.get('/:id', authMiddleware, usuarioController.buscarUsuario);
 
 /**
  * @swagger
@@ -151,7 +151,7 @@ router.get('/:id', usuarioController.buscarUsuario);
  *       500:
  *         description: Erro interno do servidor
  */
-router.post('/', usuarioController.criarUsuario);
+router.post('/', authMiddleware, isAdmin, usuarioController.criarUsuario);
 
 /**
  * @swagger
@@ -200,7 +200,7 @@ router.post('/', usuarioController.criarUsuario);
  *       500:
  *         description: Erro interno do servidor
  */
-router.put('/:id', usuarioController.atualizarUsuario);
+router.put('/:id', authMiddleware, isAdmin, usuarioController.atualizarUsuario);
 
 /**
  * @swagger
@@ -226,6 +226,6 @@ router.put('/:id', usuarioController.atualizarUsuario);
  *       500:
  *         description: Erro interno do servidor
  */
-router.delete('/:id', usuarioController.excluirUsuario);
+router.delete('/:id', authMiddleware, isAdmin, usuarioController.excluirUsuario);
 
 module.exports = router; 

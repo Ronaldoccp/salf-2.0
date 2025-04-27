@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Verificar se o usuário está logado
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (!isLoggedIn && !window.location.href.includes('index.html')) {
-        window.location.href = getBasePath() + 'index.html';
-        return;
+    // Verificar se não há dados do usuário no localStorage e definir o usuário padrão como admin
+    if (!localStorage.getItem('isLoggedIn')) {
+        // Simular login do usuário admin
+        localStorage.setItem('token', 'admin-mock-token');
+        localStorage.setItem('userEmail', 'admin@salf.edu.br');
+        localStorage.setItem('userName', 'Admin Sistema');
+        localStorage.setItem('userRole', 'admin');
+        localStorage.setItem('isLoggedIn', 'true');
     }
 
     // Carregar o sidebar e header

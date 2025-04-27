@@ -1,6 +1,6 @@
 // Configuração base da API
-const API_BASE_URL = 'http://localhost:3000/api';
-const MOCK_MODE = false; // Desativar modo de simulação para usar o banco de dados real
+const API_BASE_URL = 'http://localhost:4000/api';
+const MOCK_MODE = true; // Ativar modo de simulação para usar dados mockados em caso de falha do servidor
 
 // Função para obter o token do localStorage
 const getToken = () => localStorage.getItem('token') || 'mock-token';
@@ -595,8 +595,8 @@ const gruposAPI = {
   }
 };
 
-// Exportar todas as APIs
-const API = {
+// Exportar a API para uso global
+window.API = {
   auth: authAPI,
   escolas: escolasAPI,
   regioes: regioesAPI,

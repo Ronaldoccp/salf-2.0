@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se o objeto API está disponível
+    if (typeof API === 'undefined' || !API.auth || !API.auth.login) {
+        console.error('API de autenticação não está disponível. Verifique se o arquivo api.js foi carregado corretamente.');
+        document.getElementById('error-message').textContent = 
+            'Erro de carregamento da API. Por favor, recarregue a página ou contate o suporte.';
+        document.getElementById('error-message').classList.remove('hidden');
+        return;
+    }
+
+    console.log('API verificada e disponível:', API);
+
     // Verificar se o usuário já está logado
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn === 'true') {
@@ -70,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Redirecionar para a página principal
             window.location.href = 'dashboard.html';
         } catch (error) {
+            console.error('Erro detalhado:', error);
             showError(error.message || 'Erro ao fazer login. Verifique suas credenciais.');
             
             // Reativar o botão
